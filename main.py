@@ -30,15 +30,29 @@ def searchChannel():
 @app.route('/TodaySchedule')
 def TodaySchedule():
 	channel=False
+	offset=0
 	if ("channel" in request.args):
 		channel=request.args["channel"]
-	return jsonify(main_fun.TodaySchedule(channel))
+	return jsonify(main_fun.TodaySchedule(channel,offset))
+
+@app.route('/Schedule')
+def Schedule():
+	channel=False
+	offset=0
+	if ("channel" in request.args):
+		channel=request.args["channel"]
+	if ("offset" in request.args):
+		offset=request.args["offset"]
+	return jsonify(main_fun.TodaySchedule(channel,offset))
 
 @app.route('/GetTodaysMovies')
 def GetTodaysMovies():
 	lang=False
+	offset=0
 	if ("lang" in request.args):
 		lang=request.args["lang"]
-	return main_fun.GetTodaysMovies(lang)
+	if ("offset" in request.args):
+		offset=request.args["offset"]
+	return main_fun.GetTodaysMovies(lang,offset)
 
 #app.run()

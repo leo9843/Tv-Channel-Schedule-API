@@ -60,29 +60,29 @@ def searchChannel(lang=False,cate=False):
 				data_json.append(i)
 	return data_json
 
-def TodaySchedule(channel=False):
+def TodaySchedule(channel=False,offset=0):
 	with open(path+'/channel.json','r') as f:
 		data=json.loads(f.read())
 	try:
 		channel=data[channel]['id']
 	except Exception:
 		return "invalid categories search /searchChannel"
-	res=requests.get("http://shdbdecdnems04.cdnsrv.jio.com/jiotv.data.cdn.jio.com/apis/v1.3/getepg/get?offset=0&channel_id="+str(channel)+"&langId=6",headers=headers).json()
+	res=requests.get("http://shdbdecdnems04.cdnsrv.jio.com/jiotv.data.cdn.jio.com/apis/v1.3/getepg/get?offset="+str(offset)+"&channel_id="+str(channel)+"&langId=6",headers=headers).json()
 	data_json={}
 	for i in res['epg']:
 		data_json[i["showtime"]]={"name":i["showname"],"type":i["showCategory"],"other-details":i["description"]}
 	return data_json
 
-def GetChannelMovie(i):
+def GetChannelMovie(i,offset=0):
 	k={}
-	res=requests.get("http://shdbdecdnems04.cdnsrv.jio.com/jiotv.data.cdn.jio.com/apis/v1.3/getepg/get?offset=0&channel_id="+str(i)+"&langId=6",headers=headers).json()
+	res=requests.get("http://shdbdecdnems04.cdnsrv.jio.com/jiotv.data.cdn.jio.com/apis/v1.3/getepg/get?offset="+str(offset)+"&channel_id="+str(i)+"&langId=6",headers=headers).json()
 	for i in res['epg']:
 		if (i["showCategory"]=="Film"):
 			k[i["showtime"]+'   :- '+res["channel_name"]]=i["showname"]+' ('+i["starCast"]+')'
 			#data_json[i["showtime"]]={"name":i["showname"],"type":i["showCategory"],"other-details":i["description"]}
 	return k
 
-def GetTodaysMovies(lang=False):
+def GetTodaysMovies(lang=False,offset=0):
 	with open(path+'/channel.json','r') as f:
 		data=json.loads(f.read())
 	if (not lang):
@@ -98,7 +98,7 @@ def GetTodaysMovies(lang=False):
 	k={}
 	arr=[]
 	for no,i in enumerate(channels):
-		arr.append(ThreadWithReturnValue(target=GetChannelMovie,args=(i,)))
+		arr.append(ThreadWithReturnValue(target=GetChannelMovie,args=(i,offset)))
 		arr[no].start()
 
 	for i in arr:
