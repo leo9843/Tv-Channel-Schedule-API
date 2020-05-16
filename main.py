@@ -32,8 +32,13 @@ def TodaySchedule():
 	channel=False
 	if ("channel" in request.args):
 		channel=request.args["channel"]
-	print(channel)
 	return jsonify(main_fun.TodaySchedule(channel))
 
+@app.route('/GetTodaysMovies')
+def GetTodaysMovies():
+	lang=False
+	if ("lang" in request.args):
+		lang=request.args["lang"]
+	return main_fun.GetTodaysMovies(lang)
 
 #app.run()
