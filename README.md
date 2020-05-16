@@ -2,10 +2,11 @@
       API for Indian Tv channel schedule.
 
 ## List of api services:-
-      /getCategories:-  Json response of languages list and channel categorie list.
+      /getCategories:-  
+                  Json response of languages list and channel categorie list.
       /searchChannel:- 
-                 args:- lang(optional),cate(optional)
-                 Json response of sorted Channels on bases of language and categories.
+                  args:- lang(optional),cate(optional)
+                  Json response of sorted Channels on bases of language and categories.
       /TodaySchedule:-
                   args:- channel
                   Json response for todays schedule of respective Channel.
