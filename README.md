@@ -20,11 +20,7 @@
                   Text for particular day movies in a language
 
 ## List of sample urls:-
-      https://garudadevapi.herokuapp.com/getCategories
-      https://garudadevapi.herokuapp.com/searchChannel?lang=Telugu&cate=Movies
-      https://garudadevapi.herokuapp.com/TodaySchedule?channel=Gemini%20Movies
-      https://garudadevapi.herokuapp.com/Schedule?channel=Gemini%20Movies&offset=1
-      https://garudadevapi.herokuapp.com/GetTodaysMovies?lang=Telugu
+      Click here :- https://rapidapi.com/Garuda07/api/indian-tv-schedule
       
 
 ## You can fork the repo and deploy on VPS or deploy it on Heroku :)  
