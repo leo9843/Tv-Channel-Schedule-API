@@ -19,8 +19,8 @@
                   offset values as -1 for yesterday,0 for today,1 for tommarrow
                   Text for particular day movies in a language
 
-## List of sample urls:-
-      Click here :- [https://rapidapi.com/Garuda07/api/indian-tv-schedule](https://rapidapi.com/Garuda07/api/indian-tv-schedule)
+## List of Test urls:-
+Click here :- https://rapidapi.com/Garuda07/api/indian-tv-schedule
       
 
 ## You can fork the repo and deploy on VPS or deploy it on Heroku :)  
