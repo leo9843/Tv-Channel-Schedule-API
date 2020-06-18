@@ -1,4 +1,4 @@
-# tv-channel-schedule-api
+# Tv Channel Schedule Api
       API for Indian Tv channel schedule.
 
 ## List of api services:-
